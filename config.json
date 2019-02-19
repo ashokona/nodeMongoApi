@@ -1,5 +1,5 @@
 ﻿{
-    "connectionString": "mongodb://test:testuser1@ds341605.mlab.com:41605/reactapp-mockapi",
+    "connectionString": "mongodb://test:testuser1@ds141815.mlab.com:41815/nodetest",
     "secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
 }
 
