@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 const User = db.User;
+const mailer = require("../controllers/mailer");
 
 module.exports = {
     authenticate,
@@ -35,8 +36,8 @@ async function getById(id) {
 
 async function create(userParam) {
     // validate
-    if (await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+    if (await User.findOne({ email: userParam.email })) {
+        throw 'Username "' + userParam.email + '" is already taken';
     }
 
     const user = new User(userParam);
@@ -45,8 +46,8 @@ async function create(userParam) {
     if (userParam.password) {
         user.hash = bcrypt.hashSync(userParam.password, 10);
     }
-
     // save user
+    await mailer.sendEmail({email:'ashokona@gmail.com',company:'test'})
     await user.save();
 }
 

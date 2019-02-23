@@ -21,7 +21,7 @@ function authenticate(req, res, next) {
 
 function register(req, res, next) {
     userService.create(req.body)
-        .then(() => res.json({}))
+        .then(() => res.json({message:'Registered successfully and Cerification mail sent'}))
         .catch(err => next(err));
 }
 
