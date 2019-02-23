@@ -47,7 +47,7 @@ async function create(userParam) {
         user.hash = bcrypt.hashSync(userParam.password, 10);
     }
     // save user
-    await mailer.sendEmail({email:'ashokona@gmail.com',company:'test'})
+    await mailer.sendEmail(userParam)
     await user.save();
 }
 
